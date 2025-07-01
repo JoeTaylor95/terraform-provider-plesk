@@ -1,0 +1,16 @@
+build:
+  stage: build
+  script:
+    - GO_VERSION=1.20.7
+    - curl -OL https://golang.org/dl/go${GO_VERSION}.linux-amd64.tar.gz
+    - tar -C $HOME -xzf go${GO_VERSION}.linux-amd64.tar.gz
+    - export PATH=$HOME/go/bin:$PATH
+    - go version
+    - mkdir -p build
+    - GOOS=linux GOARCH=amd64 go build -o build/terraform-provider-plesk-linux-amd64
+    - GOOS=windows GOARCH=amd64 go build -o build/terraform-provider-plesk-windows-amd64.exe
+    - GOOS=darwin GOARCH=amd64 go build -o build/terraform-provider-plesk-darwin-amd64
+  artifacts:
+    paths:
+      - build/
+    expire_in: 1 week
