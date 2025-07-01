@@ -29,6 +29,6 @@ This Terraform provider allows you to manage Plesk resources such as domains, FT
 ### Build from source
 
 ```bash
-git clone https://git.home.taylor.am/terraform-provider/terraform-provider-plesk.git
+git clone https://taylor.am/terraform-git.home.provider/terraform-provider-plesk.git
 cd plesk/provider
 go build -o terraform-provider-plesk

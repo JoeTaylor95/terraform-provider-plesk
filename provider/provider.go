@@ -5,10 +5,9 @@ import (
 	"net/http"
 	"time"
 
+	"github.com/JoeTaylor95/terraform-provider-plesk/plesk"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/diag"
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-
-	"git.home.taylor.am/terraform-provider/terraform-provider-plesk"
 )
 
 func Provider() *schema.Provider {
@@ -77,12 +76,12 @@ func providerConfigure(ctx context.Context, d *schema.ResourceData) (interface{}
 	}
 
 	client := &plesk.Client{
-		Host:   host,
-		Port:   port,
-		Token:  token,
-    Client: &http.Client{  // Capital C here!
-        Timeout: 15 * time.Second,
-    	},
+		Host:  host,
+		Port:  port,
+		Token: token,
+		Client: &http.Client{ // Capital C here!
+			Timeout: 15 * time.Second,
+		},
 	}
 
 	// Test API connectivity and authentication

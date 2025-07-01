@@ -1,4 +1,4 @@
-module git.home.taylor.am/terraform-provider/terraform-provider-plesk
+module github.com/JoeTaylor95/terraform-provider-plesk
 
 go 1.20
 
